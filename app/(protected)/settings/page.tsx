@@ -61,26 +61,26 @@ const ProtectedSettingsPage = () => {
         <Form {...form}>
           <form className="space-y-6" onSubmit={form.handleSubmit(onSubmit)}>
             <div className="space-y-4">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Name</FormLabel>
-                    <FormControl>
-                      <Input {...field} type="text" placeholder="Example" disabled={isPending} autoComplete="off" />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              {user?.isOAuth === false && (
-                <>
+              <div className="flex gap-4">
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem className="w-full">
+                      <FormLabel>Name</FormLabel>
+                      <FormControl>
+                        <Input {...field} type="text" placeholder="Example" disabled={isPending} autoComplete="off" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                {user?.isOAuth === false && (
                   <FormField
                     control={form.control}
                     name="email"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="w-full">
                         <FormLabel>Email</FormLabel>
                         <FormControl>
                           <Input {...field} type="email" placeholder="example@mail.com" disabled={isPending} autoComplete="off" />
@@ -89,11 +89,15 @@ const ProtectedSettingsPage = () => {
                       </FormItem>
                     )}
                   />
+                )}
+              </div>
+              {user?.isOAuth === false && (
+                <div className="flex gap-4">
                   <FormField
                     control={form.control}
                     name="password"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="w-full">
                         <FormLabel>Password</FormLabel>
                         <FormControl>
                           <Input {...field} type="password" placeholder="********" disabled={isPending} autoComplete="off" />
@@ -106,7 +110,7 @@ const ProtectedSettingsPage = () => {
                     control={form.control}
                     name="newPassword"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="w-full">
                         <FormLabel>New Password</FormLabel>
                         <FormControl>
                           <Input {...field} type="password" placeholder="********" disabled={isPending} autoComplete="off" />
@@ -115,7 +119,7 @@ const ProtectedSettingsPage = () => {
                       </FormItem>
                     )}
                   />
-                </>
+                </div>
               )}
               <FormField
                 control={form.control}

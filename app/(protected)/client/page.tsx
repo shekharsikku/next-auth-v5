@@ -7,7 +7,7 @@ const ProtectedClientPage = () => {
   const user = useCurrentUser();
 
   return (
-    <UserInfo label="📱 Client component!" user={user} />
+    <UserInfo label="💻 Client component!" user={user} />
   )
 }
 
